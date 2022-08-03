@@ -15,7 +15,7 @@ const {server} = Config;
     try {
         app.listen(server.PORT, () => {
             logger.info(
-                "oidc-provider listening on port 3000, check http://localhost:3000/.well-known/openid-configuration"
+                "dependency-injector-example listening on port 8080, make a GET request on http://localhost:8080/robot"
             );
         });
     } catch (e) {
