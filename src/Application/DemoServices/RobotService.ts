@@ -8,7 +8,7 @@ import HttpStatusCode from "../Utils/HttpStatusCode";
 
 @Service()
 class RobotService {
-    constructor(@Inject() private chairService: ChairService) {}
+    constructor(@Inject(() => ChairService) private chairService: ChairService) {}
     makeObject() {
         try {
             const chairWithBack = this.chairService.hasBack(true);
