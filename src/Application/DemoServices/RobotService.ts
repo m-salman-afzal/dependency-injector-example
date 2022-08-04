@@ -1,4 +1,7 @@
-import {Service, Inject} from "typedi";
+import {injectable, inject} from "inversify";
+
+import IRobotService from "./IRobotService";
+import {TYPES} from "../Types"
 
 import ChairService from "./ChairService";
 
@@ -6,9 +9,10 @@ import logger from "../../Infrastructure/Logger/logger";
 import HttpResponse from "../Utils/HttpResponse";
 import HttpStatusCode from "../Utils/HttpStatusCode";
 
-@Service()
-class RobotService {
-    constructor(@Inject(() => ChairService) private chairService: ChairService) {}
+
+@injectable()
+class RobotService implements IRobotService{
+    constructor(@inject(TYPES.IChairService) private chairService: ChairService) {}
     makeObject() {
         try {
             const chairWithBack = this.chairService.hasBack(true);

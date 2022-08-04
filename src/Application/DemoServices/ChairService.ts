@@ -1,9 +1,10 @@
-import {Service} from "typedi";
+import {injectable} from "inversify";
 
 import logger from "../../Infrastructure/Logger/logger";
+import IChairService from "./IChairService";
 
-@Service()
-class ChairService {
+@injectable()
+class ChairService implements IChairService{
     numberOfLegs(number: number) {
         try {
             console.log(`Chair Service: This chair has ${number} legs`);
