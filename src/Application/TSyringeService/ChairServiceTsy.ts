@@ -8,8 +8,8 @@ import logger from "../../Infrastructure/Logger/logger";
 class ChairServiceTsy implements IChairServiceTsy {
     numberOfLegs(number: number) {
         try {
-            console.log(`Chair Service: This chair has ${number} legs`);
-            return `Chair Service: This chair has ${number} legs`;
+            console.log(`Chair Service TSyringe: This chair has ${number} legs`);
+            return `Chair Service TSyringe: This chair has ${number} legs`;
         } catch (e) {
             logger.error(e.message);
         }
@@ -17,8 +17,8 @@ class ChairServiceTsy implements IChairServiceTsy {
 
     hasBack(exists: boolean) {
         try {
-            console.log(`Chair Service: Does this chair has a back? ${exists}`);
-            return `Chair Service: Does this chair has a back? ${exists}`;
+            console.log(`Chair Service TSyringe: Does this chair has a back? ${exists}`);
+            return `Chair Service TSyringe: Does this chair has a back? ${exists}`;
         } catch (e) {
             logger.error(e.message);
         }
@@ -26,8 +26,8 @@ class ChairServiceTsy implements IChairServiceTsy {
 
     hasCushion(exists: boolean) {
         try {
-            console.log(`Chair Service: Does this chair has a cushion? ${exists}`);
-            return `Chair Service: Does this chair has a cushion? ${exists}`;
+            console.log(`Chair Service TSyringe: Does this chair has a cushion? ${exists}`);
+            return `Chair Service TSyringe: Does this chair has a cushion? ${exists}`;
         } catch (e) {
             logger.error(e.message);
         }

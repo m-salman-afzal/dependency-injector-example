@@ -1,6 +1,6 @@
 const TYPES = {
-    IChairService: Symbol.for("IChairService"),
-    IRobotService: Symbol.for("IRobotService")
+    IChairServiceInv: Symbol.for("IChairServiceInv"),
+    IRobotServiceInv: Symbol.for("IRobotServiceInv")
 };
 
 export {TYPES};
