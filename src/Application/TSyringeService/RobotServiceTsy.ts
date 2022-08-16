@@ -1,9 +1,8 @@
-import {injectable, inject} from "inversify";
+import {injectable, inject} from "tsyringe";
 
-import IRobotService from "./IRobotService";
-import {TYPES} from "../Types"
+import IRobotServiceTsy from "./IRobotServiceTsy";
 
-import ChairService from "./ChairService";
+import ChairServiceTsy from "./ChairServiceTsy";
 
 import logger from "../../Infrastructure/Logger/logger";
 import HttpResponse from "../Utils/HttpResponse";
@@ -11,8 +10,8 @@ import HttpStatusCode from "../Utils/HttpStatusCode";
 
 
 @injectable()
-class RobotService implements IRobotService{
-    constructor(@inject(TYPES.IChairService) private chairService: ChairService) {}
+class RobotServiceTsy implements IRobotServiceTsy{
+    constructor(@inject("IChairServiceTsy") private chairService: ChairServiceTsy) {}
     makeObject() {
         try {
             const chairWithBack = this.chairService.hasBack(true);
@@ -24,4 +23,4 @@ class RobotService implements IRobotService{
     }
 }
 
-export default RobotService;
+export default RobotServiceTsy;

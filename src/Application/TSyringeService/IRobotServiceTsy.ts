@@ -1,7 +1,7 @@
 import HttpResponse from "../Utils/HttpResponse"
 
-interface IRobotService {
+interface IRobotServiceTsy {
     makeObject(): HttpResponse
 }
 
-export default IRobotService
+export default IRobotServiceTsy

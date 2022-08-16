@@ -1,18 +1,24 @@
 import e from "express";
-import IRobotService from "../../src/Application/DemoServices/IRobotService";
+import {container} from "tsyringe";
 
-import container from "../../src/Application/inversify.config";
-import {TYPES} from "../../src/Application/Types";
+import ChairServiceTsy from "../../src/Application/TSyringeService/ChairServiceTsy";
+
+// When you need to inject another class with different implementation, use ChairServiceNew
+import ChairServiceNewTsy from "../../src/Application/Common/ChairServiceNewTsy";
+
+import RobotServiceTsy from "../../src/Application/TSyringeService/RobotServiceTsy";
 
 import HttpResponse from "../../src/Application/Utils/HttpResponse";
 import logger from "../../src/Infrastructure/Logger/logger";
 
-const robotService = container.get<IRobotService>(TYPES.IRobotService);
+// Use ChairServiceNew if you want to replace dependency in regards to DIP
+container.register("IChairServiceTsy", {useClass: ChairServiceTsy})
+const robotServiceTsy = container.resolve(RobotServiceTsy);
 
 class RobotController {
-    static makeObject(request: e.Request, response: e.Response) {
+    static makeTsyringeObject(request: e.Request, response: e.Response) {
         try {
-            const httpResponse = robotService.makeObject();
+            const httpResponse = robotServiceTsy.makeObject();
 
             HttpResponse.convertToExpress(response, httpResponse);
         } catch (e) {

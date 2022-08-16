@@ -1,14 +1,15 @@
-import {injectable} from "inversify";
+import {injectable} from "tsyringe";
+
+import IChairServiceTsy from "./IChairServiceTsy";
 
 import logger from "../../Infrastructure/Logger/logger";
-import IChairService from "./IChairService";
 
 @injectable()
-class ChairService implements IChairService{
+class ChairServiceTsy implements IChairServiceTsy {
     numberOfLegs(number: number) {
         try {
             console.log(`Chair Service: This chair has ${number} legs`);
-            return number;
+            return `Chair Service: This chair has ${number} legs`;
         } catch (e) {
             logger.error(e.message);
         }
@@ -17,7 +18,7 @@ class ChairService implements IChairService{
     hasBack(exists: boolean) {
         try {
             console.log(`Chair Service: Does this chair has a back? ${exists}`);
-            return exists;
+            return `Chair Service: Does this chair has a back? ${exists}`;
         } catch (e) {
             logger.error(e.message);
         }
@@ -26,10 +27,10 @@ class ChairService implements IChairService{
     hasCushion(exists: boolean) {
         try {
             console.log(`Chair Service: Does this chair has a cushion? ${exists}`);
-            return exists;
+            return `Chair Service: Does this chair has a cushion? ${exists}`;
         } catch (e) {
             logger.error(e.message);
         }
     }
 }
-export default ChairService;
+export default ChairServiceTsy;
