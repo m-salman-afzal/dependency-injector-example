@@ -6,7 +6,7 @@ The purpose of this project is to display the usage of dependency injection with
 - [TSyringe](https://github.com/microsoft/tsyringe)
 
 I've written an article on detailing on what is Dependency Injection Principle and how to implement it. 
-### Check it out [here!](url)
+### Check it out [here!](https://blog.carbonteq.com/dependency-injection-containers-what-which-and-how/)
 
 # How to
 1.  Clone the repo
